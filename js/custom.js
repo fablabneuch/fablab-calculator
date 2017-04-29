@@ -57,9 +57,20 @@
 		$('#sla-price-membre').val(prix_abo.toFixed(2));
 	}
 	
+	function calculShs(){
+		var finalValue = null;
+		
+		// Récupération de la quantité de produit voulu
+		var input_p = parseInt($('#shs-poids').val()) || 0;
+		
+		// Calcul du prix
+		finalValue = input_p*0.7;
+
+		$('#shs-price').val(finalValue.toFixed(2));
+	}
+	
 	function calculObj(){
 		var finalValue = null;
-		var prix_abo = null;
 		
 		// Récupération de la quantité de produit voulu
 		var input_h = parseInt($('#obj-heures').val()) || 0;
@@ -87,6 +98,7 @@
 	$(document).ready(function() {
 		calculFdm();
 		calculSla();
+		calculShs();
 		calculObj();
 		
 		// Disable scroll when focused on a number input.
@@ -122,6 +134,9 @@
 		});
 		$('#sla-poids').keyup(function(){
 			calculSla();
+		});
+		$('#shs-poids').keyup(function(){
+			calculShs();
 		});
 		$('#obj-heures').keyup(function(){
 			calculObj();
