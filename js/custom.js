@@ -84,10 +84,29 @@
 		$('#obj-price').val(finalValue.toFixed(2));
 	}
 	
+	function isInt(value) {
+		return !isNaN(value) &&
+			parseInt(Number(value)) == value &&
+			!isNaN(parseInt(value, 10));
+	}
+	
+	function checkInteger(el_to_check, el_to_notify) {
+		var value = $(el_to_check).val();
+		
+		var el_to_color = $().parent();
+		$(el_to_color).
+		
+		console.log('Is a Int : ' + isInt(value));
+	}
+	
 	$(document).ready(function() {
-		calculFdm();
-		calculSla();
-		calculObj();
+		$('#fdm-heures').trigger('keyup');
+		$('#fdm-poids').trigger('keyup');
+		$('#sla-heures').trigger('keyup');
+		$('#sla-poids').trigger('keyup');
+		$('#obj-heures').trigger('keyup');
+		$('#obj-poids-modele').trigger('keyup');
+		$('#obj-poids-support').trigger('keyup');
 		
 		// Disable scroll when focused on a number input.
 		$('form').on('focus', 'input[type=number]', function(e) {
@@ -112,6 +131,7 @@
 		
 		// Link to event (Fdm, Sla, Obj)
 		$('#fdm-heures').keyup(function(){
+			//checkInteger($(this), '#', '#');
 			calculFdm();
 		});
 		$('#fdm-poids').keyup(function(){
