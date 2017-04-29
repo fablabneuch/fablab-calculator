@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A web interface for FDM">
+		<meta name="author" content="Jonathan Dreyer">
+		
+		<title>FabLab Neuch - Calculateur FDM</title>
+		
+		<!-- TODO: Check last version (jquery) -->
+		<!-- Bootstrap core CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		
+		<!-- Font Awesome CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
+		
+		<!-- Bootstrap-select CSS -->
+		<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" rel="stylesheet">-->
+		
+		<!-- Custom styles CSS -->
+		<link href="css/style.css" rel="stylesheet" media="screen">
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<!-- Bootstrap-select -->
+		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>-->
+		
+		<!-- custom script -->
+		<script type="text/javascript" src="js/custom.js"></script>
+	</head>
+	
+	<body>
+		<div class="wrap">
+			<div class="page-header">
+				<div class="header row">
+					<div class="col-md-1 header-logo">
+						<img class="logo" src="image/logo.jpg" alt="">
+					</div>
+					
+					<div class="col-md-offset-1 col-md-7 row">
+						<div class="header-title">
+							<h1>Calculateur prix machine</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class="machine-section fdm">
+					<div class="row col-md-12">
+						<div class="row machine-title">
+							<div class="col-md-5">
+								<h3>FDM (Ultimaker, Prusa)</h3>
+							</div>
+						</div>
+						
+						<div class="row input-section-margin">
+							<div class="col-md-2 input-section-text">
+								<p>Temps :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="fdm-heures" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">heures</span>
+								</div>
+							</div>
+							
+							<div class="col-md-2 col-md-offset-1 input-section-text">
+								<p>Poids :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="fdm-poids" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">gr.</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row section-price input-section-margin">
+							<div class="col-md-3 input-section-text">
+								<p>Prix normal :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm input-group-price">
+									<span class="input-group-addon">CHF</span>
+									<input type="text" class="form-control input-price input-disable" id="fdm-price"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row section-price input-section-margin">
+							<div class="col-md-3 input-section-text">
+								<p>Prix avec abonnement 1/2 :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm input-group-price">
+									<span class="input-group-addon">CHF</span>
+									<input type="text" class="form-control input-price input-disable" id="fdm-price-membre"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="machine-section sla">
+					<div class="row col-md-12">
+						<div class="row machine-title">
+							<div class="col-md-5">
+								<h3>SLA (Form1+)</h3>
+							</div>
+						</div>
+						
+						<div class="row input-section-margin">
+							<div class="col-md-2 input-section-text">
+								<p>Temps :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="sla-heures" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">heures</span>
+								</div>
+							</div>
+							
+							<div class="col-md-2 col-md-offset-1 input-section-text">
+								<p>Poids :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="sla-poids" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">gr.</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row section-price input-section-margin">
+							<div class="col-md-3 input-section-text">
+								<p>Prix normal :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm input-group-price">
+									<span class="input-group-addon">CHF</span>
+									<input type="text" class="form-control input-price input-disable" id="sla-price"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row section-price input-section-margin">
+							<div class="col-md-3 input-section-text">
+								<p>Prix avec abonnement 1/2 :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm input-group-price">
+									<span class="input-group-addon">CHF</span>
+									<input type="text" class="form-control input-price input-disable" id="sla-price-membre"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="machine-section obj">
+					<div class="row col-md-12">
+						<div class="row machine-title">
+							<div class="col-md-5">
+								<h3>Objet30Pro</h3>
+							</div>
+						</div>
+						
+						<div class="row input-section-margin">
+							<div class="col-md-2 input-section-text">
+								<p>Temps :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="obj-heures" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">heures</span>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="row input-section-margin">
+							<div class="col-md-2 input-section-text">
+								<p>Poids modèle :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="obj-poids-modele" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">gr.</span>
+								</div>
+							</div>
+							
+							<div class="col-md-2 col-md-offset-1 input-section-text">
+								<p>Poids support :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm">
+									<input type="number" class="form-control" id="obj-poids-support" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
+									<span class="input-group-addon">gr.</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row section-price input-section-margin">
+							<div class="col-md-3 input-section-text">
+								<p>Prix normal :</p>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="input-group input-group-sm input-group-price">
+									<span class="input-group-addon">CHF</span>
+									<input type="text" class="form-control input-price input-disable" id="obj-price"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer">
+				<div>
+					<p class="copy">&copy; 2017 <a href="http://fablab-neuch.ch">FabLab-Neuch</a>, All Rights Reserved.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

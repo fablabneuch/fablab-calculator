@@ -1,0 +1,215 @@
+/* ---------------------------------------------- /*
+ * General styles
+/* ---------------------------------------------- */
+
+/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);*/
+
+/*body {
+	font: 300 15px/1.6 'Raleway', serif, sans-serif;
+	color: #545454;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}*/
+
+a {
+	color: #ececec;
+}
+
+a:hover {
+	color: #C4C4C4;
+}
+
+/* ---------------------------------------------- /*
+ * Typography
+/* ---------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	/*font: 400 46px/1.2 'Montserrat', serif, sans-serif;*/
+	margin: 5px 0 5px;
+	color: #222;
+}
+
+/*h1 {
+	font-size: 64px;
+	font-weight: 700;
+	margin: 5px 0 15px;
+}
+
+h2 {
+	font-size: 40px;
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 22px;
+	text-transform: uppercase;
+	margin: 5px 0 15px;
+}
+
+h4 {
+	font-size: 16px;
+	margin: 5px 0 10px;
+}
+
+h5 {
+	font-size: 14px;
+}
+
+h6 {
+	font-size: 13px;
+}*/
+
+/* ---------------------------------------------- /*
+ * Transition elements
+/* ---------------------------------------------- */
+
+.form-control {
+	-webkit-transition: all 0.125s ease-in-out 0s;
+	   -moz-transition: all 0.125s ease-in-out 0s;
+		-ms-transition: all 0.125s ease-in-out 0s;
+		 -o-transition: all 0.125s ease-in-out 0s;
+			transition: all 0.125s ease-in-out 0s;
+}
+
+/* ---------------------------------------------- /*
+ * Reset box-shadow
+/* ---------------------------------------------- */
+
+.form-control,
+.form-control:hover, 
+.form-control:focus {
+	-webkit-box-shadow: none;
+			box-shadow: none;
+}
+
+/* ---------------------------------------------- /*
+ * Reset border-radius
+/* ---------------------------------------------- */
+
+.form-control {
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+		 -o-border-radius: 3px;
+			border-radius: 3px;
+}
+
+/* ---------------------------------------------- /*
+ * Inputs styles
+/* ---------------------------------------------- */
+
+.form-control {
+	background: #FFF;
+	border: 2px solid #C4C4C4;
+	height: 54px;
+	font-size: 14px;
+	padding: 15px;
+	color: #777;
+}
+
+.input-section-margin {
+	margin-bottom: 10px;
+}
+
+.input-section-text {
+	padding-top: 4px;
+}
+
+.input-group-price {
+	width: 130px;
+}
+
+.input-price {
+	font-size: 14px !important;
+	font-weight: bold;
+	font-style: italic !important;
+	opacity: 0.9 !important;
+	color: #2d2d2d;
+	border-width: 1px;
+	background: #f8f8f8;
+}
+.input-price:hover {
+	cursor: default;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/* ---------------------------------------------- /*
+ * General
+/* ---------------------------------------------- */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	position: relative;
+}
+
+.page-header {
+	border: 0;
+	margin: 0 0 20px;
+}
+
+.header {
+	margin: 0 30px;
+}
+
+.header-logo {
+	text-align: center;
+}
+
+.header-title {
+	margin: 15px;
+	text-align: center;
+}
+
+.header-logo img {
+	height: 60%;
+}
+
+.container {
+	padding-bottom: 90px;
+}
+
+.machine-title {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.machine-section {
+	margin-bottom: 20px;
+}
+
+.section-price {
+	margin-top: 20px;
+}
+
+.footer {
+	background: #322e2e;
+	padding: 15px 0 10px;
+	color: #FFF;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.footer .copy {
+	font-size: 12px;
+	margin: 2px 0;
+	text-align: center;
+}
