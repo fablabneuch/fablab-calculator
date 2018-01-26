@@ -123,11 +123,14 @@
 		// Disable editable value
 		$('.input-disable').attr('disabled','disabled');
 
-		// Link to event (Fdm, Sla, Obj)
+		// Link to event (Fdm, Sla, Shs, Obj)
 		$('#fdm-heures').keyup(function(){
 			calculFdm();
 		});
 		$('#fdm-poids').keyup(function(){
+			calculFdm();
+		});
+		$('#fdm-poids-pva').keyup(function(){
 			calculFdm();
 		});
 		$('#sla-heures').keyup(function(){
