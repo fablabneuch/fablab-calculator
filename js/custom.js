@@ -1,5 +1,9 @@
 (function($){
 
+	function priceFormat(price){
+		return (Math.ceil(price)).toFixed(2);
+	}
+
 	//From G.Bussy
 	function calculFdm(){
 		var finalValue = null;
@@ -26,8 +30,8 @@
 		prix_abo = finalValue/2 + input_p*0.1 + input_p_pva*0.2;
 		finalValue = finalValue + input_p*0.1 + input_p_pva*0.2;
 
-		$('#fdm-price').val(finalValue.toFixed(2));
-		$('#fdm-price-membre').val(prix_abo.toFixed(2));
+		$('#fdm-price').val(priceFormat(finalValue));
+		$('#fdm-price-membre').val(priceFormat(prix_abo));
 	}
 
 	function calculSla(){
@@ -54,8 +58,8 @@
 		prix_abo = finalValue/2 + input_p*0.7;
 		finalValue = finalValue + input_p*0.7;
 
-		$('#sla-price').val(finalValue.toFixed(2));
-		$('#sla-price-membre').val(prix_abo.toFixed(2));
+		$('#sla-price').val(priceFormat(finalValue));
+		$('#sla-price-membre').val(priceFormat(prix_abo));
 	}
 
 	function calculShs(){
@@ -67,7 +71,7 @@
 		// Calcul du prix
 		finalValue = input_p*0.7;
 
-		$('#shs-price').val(finalValue.toFixed(2));
+		$('#shs-price').val(priceFormat(finalValue));
 	}
 
 	function calculObj(){
@@ -93,7 +97,7 @@
 		}
 		finalValue = finalValue + input_pm*1.1 + input_ps*0.7;
 
-		$('#obj-price').val(finalValue.toFixed(2));
+		$('#obj-price').val(priceFormat(finalValue));
 	}
 
 	$(document).ready(function() {
