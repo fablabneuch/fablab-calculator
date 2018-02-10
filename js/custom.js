@@ -4,10 +4,15 @@
 		return (Math.ceil(price)).toFixed(2);
 	}
 
+	function ceilPriceToDCHT(price){
+		return (Math.ceil(price * 10) / 10).toFixed(2);
+	}
+
 	//From G.Bussy
 	function calculFdm(){
 		var finalValue = null;
 		var prix_abo = null;
+		var material = null;
 
 		// Récupération de la quantité de produit voulu
 		var input_h = parseFloat($('#fdm-heures').val()) || 0;
@@ -27,10 +32,14 @@
 			}
 			finalValue = finalValue + 10;
 		}
-		prix_abo = finalValue/2 + input_p*0.1 + input_p_pva*0.2;
-		finalValue = finalValue + input_p*0.1 + input_p_pva*0.2;
+
+		material = input_p*0.1 + input_p_pva*0.2;
+
+		prix_abo = finalValue/2 + material;
+		finalValue = finalValue + material;
 
 		$('#fdm-price').val(ceilPriceToCHF(finalValue));
+		$('#fdm-price-material').val(ceilPriceToDCHT(material));
 		$('#fdm-price-membre').val(ceilPriceToCHF(prix_abo));
 	}
 
