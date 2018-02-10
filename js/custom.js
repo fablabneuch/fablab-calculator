@@ -1,6 +1,6 @@
 (function($){
 
-	function priceFormat(price){
+	function ceilPriceToCHF(price){
 		return (Math.ceil(price)).toFixed(2);
 	}
 
@@ -10,9 +10,9 @@
 		var prix_abo = null;
 
 		// Récupération de la quantité de produit voulu
-		var input_h = parseInt($('#fdm-heures').val()) || 0;
-		var input_p = parseInt($('#fdm-poids').val()) || 0;
-		var input_p_pva = parseInt($('#fdm-poids-pva').val()) || 0;
+		var input_h = parseFloat($('#fdm-heures').val()) || 0;
+		var input_p = parseFloat($('#fdm-poids').val()) || 0;
+		var input_p_pva = parseFloat($('#fdm-poids-pva').val()) || 0;
 
 		// Calcul du prix
 		if(input_h <= 1) {
@@ -30,8 +30,8 @@
 		prix_abo = finalValue/2 + input_p*0.1 + input_p_pva*0.2;
 		finalValue = finalValue + input_p*0.1 + input_p_pva*0.2;
 
-		$('#fdm-price').val(priceFormat(finalValue));
-		$('#fdm-price-membre').val(priceFormat(prix_abo));
+		$('#fdm-price').val(ceilPriceToCHF(finalValue));
+		$('#fdm-price-membre').val(ceilPriceToCHF(prix_abo));
 	}
 
 	function calculSla(){
@@ -39,8 +39,8 @@
 		var prix_abo = null;
 
 		// Récupération de la quantité de produit voulu
-		var input_h = parseInt($('#sla-heures').val()) || 0;
-		var input_p = parseInt($('#sla-poids').val()) || 0;
+		var input_h = parseFloat($('#sla-heures').val()) || 0;
+		var input_p = parseFloat($('#sla-poids').val()) || 0;
 
 		// Calcul du prix
 		if(input_h <= 1) {
@@ -58,29 +58,29 @@
 		prix_abo = finalValue/2 + input_p*0.7;
 		finalValue = finalValue + input_p*0.7;
 
-		$('#sla-price').val(priceFormat(finalValue));
-		$('#sla-price-membre').val(priceFormat(prix_abo));
+		$('#sla-price').val(ceilPriceToCHF(finalValue));
+		$('#sla-price-membre').val(ceilPriceToCHF(prix_abo));
 	}
 
 	function calculShs(){
 		var finalValue = null;
 
 		// Récupération de la quantité de produit voulu
-		var input_p = parseInt($('#shs-poids').val()) || 0;
+		var input_p = parseFloat($('#shs-poids').val()) || 0;
 
 		// Calcul du prix
 		finalValue = input_p*0.7;
 
-		$('#shs-price').val(priceFormat(finalValue));
+		$('#shs-price').val(ceilPriceToCHF(finalValue));
 	}
 
 	function calculObj(){
 		var finalValue = null;
 
 		// Récupération de la quantité de produit voulu
-		var input_h = parseInt($('#obj-heures').val()) || 0;
-		var input_pm = parseInt($('#obj-poids-modele').val()) || 0;
-		var input_ps = parseInt($('#obj-poids-support').val()) || 0;
+		var input_h = parseFloat($('#obj-heures').val()) || 0;
+		var input_pm = parseFloat($('#obj-poids-modele').val()) || 0;
+		var input_ps = parseFloat($('#obj-poids-support').val()) || 0;
 
 		// Calcul du prix
 		if(input_h <= 1) {
@@ -97,10 +97,11 @@
 		}
 		finalValue = finalValue + input_pm*1.1 + input_ps*0.7;
 
-		$('#obj-price').val(priceFormat(finalValue));
+		$('#obj-price').val(ceilPriceToCHF(finalValue));
 	}
 
 	$(document).ready(function() {
+		//Initial price update
 		calculFdm();
 		calculSla();
 		calculShs();
