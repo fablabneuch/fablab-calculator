@@ -102,12 +102,27 @@
 		$('#obj-price').val(ceilPriceToCHF(finalValue));
 	}
 
+	function calculLaser(){
+		var finalValue = null;
+
+		// Récupération de la quantité de produit voulu
+		var input_h = parseFloat($('#laser-heures').val()) || 0;
+
+		finalValue = 20*input_h;
+
+		prix_abo = finalValue/2;
+
+		$('#laser-price').val(ceilPriceToCHF(finalValue));
+		$('#laser-price-membre').val(ceilPriceToCHF(prix_abo));
+	}
+
 	$(document).ready(function() {
 		//Initial price update
 		calculFdm();
 		calculSla();
 		calculShs();
 		calculObj();
+		calculLaser();
 
 		// Disable scroll when focused on a number input.
 		$('form').on('focus', 'input[type=number]', function(e) {
@@ -157,6 +172,9 @@
 		});
 		$('#obj-poids-support').keyup(function(){
 			calculObj();
+		});
+		$('#laser-heures').keyup(function(){
+			calculLaser();
 		});
 
 	});
