@@ -8,6 +8,33 @@
 		return (Math.ceil(price * 10) / 10).toFixed(2);
 	}
 
+	function priceHoursPrinter(h, p_h, c_a, h_max) {
+		//default values
+		if (c_a === undefined) {
+			c_a = 0.7;
+		}
+		if (h_max === undefined) {
+			h_max = 30;
+		}
+
+		var price = null;
+
+		if (h <= 1) {
+			price = p_h;
+		} else {
+			for (i=2;i<=h;i++) {
+				a=i*c_a;
+				if (a > h_max) {
+					a = h_max;
+				}
+				price = price + (p_h * (1/a));
+			}
+			price = price + p_h;
+		}
+
+		return price;
+	}
+
 	//From G.Bussy
 	function calculFdm(){
 		var finalValue = null;
@@ -19,19 +46,7 @@
 		var input_p = parseFloat($('#fdm-poids').val()) || 0;
 		var input_p_pva = parseFloat($('#fdm-poids-pva').val()) || 0;
 
-		// Calcul du prix
-		if(input_h <= 1) {
-			finalValue = 10;
-		} else {
-			for(i=2;i<=input_h;i++){
-				a=i*0.7;
-				if(a>30){
-					a = 30;
-				}
-				finalValue = finalValue + 10*(1/a);
-			}
-			finalValue = finalValue + 10;
-		}
+		finalValue = priceHoursPrinter(input_h, 10);
 
 		material = input_p*0.1 + input_p_pva*0.2;
 
@@ -51,19 +66,8 @@
 		var input_h = parseFloat($('#sla-heures').val()) || 0;
 		var input_p = parseFloat($('#sla-poids').val()) || 0;
 
-		// Calcul du prix
-		if(input_h <= 1) {
-			finalValue = 10;
-		} else {
-			for(i=2;i<=input_h;i++){
-				a=i*0.7;
-				if(a>30){
-					a = 30;
-				}
-				finalValue = finalValue + 10*(1/a);
-			}
-			finalValue = finalValue + 10;
-		}
+		finalValue = priceHoursPrinter(input_h, 10);
+
 		prix_abo = finalValue/2 + input_p*0.7;
 		finalValue = finalValue + input_p*0.7;
 
@@ -91,19 +95,8 @@
 		var input_pm = parseFloat($('#obj-poids-modele').val()) || 0;
 		var input_ps = parseFloat($('#obj-poids-support').val()) || 0;
 
-		// Calcul du prix
-		if(input_h <= 1) {
-			finalValue = 20;
-		} else {
-			for(i=2;i<=input_h;i++){
-				a=i*0.7;
-				if(a>30){
-					a = 30;
-				}
-				finalValue = finalValue + 20*(1/a);
-			}
-			finalValue = finalValue + 20;
-		}
+		finalValue = priceHoursPrinter(input_h, 20);
+
 		finalValue = finalValue + input_pm*1.1 + input_ps*0.7;
 
 		$('#obj-price').val(ceilPriceToCHF(finalValue));
