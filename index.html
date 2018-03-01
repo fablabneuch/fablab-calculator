@@ -16,7 +16,7 @@
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
 
 		<!-- Bootstrap-select CSS -->
-		<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" rel="stylesheet">-->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">
 
 		<!-- Custom styles CSS -->
 		<link href="css/style.css" rel="stylesheet" media="screen">
@@ -28,7 +28,7 @@
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- Bootstrap-select -->
-		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 		<!-- custom script -->
 		<script type="text/javascript" src="js/custom.js"></script>
@@ -55,12 +55,30 @@
 					<div class="row col-md-12">
 						<div class="row machine-title">
 							<div class="col-md-5">
-								<h3>FDM (Ultimaker, Prusa)</h3>
+								<h3>FDM</h3>
 							</div>
 						</div>
 
 						<div class="row input-section-margin">
 							<div class="col-md-2 input-section-text">
+								<p>Machine</p>
+							</div>
+
+							<div class="col-md-3">
+								<div class="form-group">
+									<select class="selectpicker form-control show-tick">
+										<option value="um0">Ultimaker Original</option>
+										<option value="prusa">Prusa</option>
+										<option value="delta">Delta</option>
+										<option data-divider="true"></option>
+										<option value="um3">Ultimaker 3</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row input-section-margin">
+							<div class="col-md-3 input-section-text">
 								<p>Poids PLA:</p>
 							</div>
 
@@ -71,11 +89,11 @@
 								</div>
 							</div>
 
-							<div class="col-md-2 col-md-offset-1 input-section-text">
+							<div class="col-md-2 col-md-offset-1 input-section-text" id="section-fdm-pva">
 								<p>Poids PVA:</p>
 							</div>
 
-							<div class="col-md-2">
+							<div class="col-md-2" id="section-fdm-pva">
 								<div class="input-group input-group-sm">
 									<input type="number" class="form-control" id="fdm-poids-pva" placeholder="0" min="0" step="1" aria-describedby="sizing-addon3"/>
 									<span class="input-group-addon">gr.</span>

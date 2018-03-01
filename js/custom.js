@@ -4,8 +4,21 @@
 		return (Math.ceil(price)).toFixed(2);
 	}
 
+	function updateSectionFdm(){
+		var machine = $('.selectpicker option:selected').val() ;
+
+		//Enable PVA selection for UM3
+		if(machine == "um3") {
+			jQuery("div[id=section-fdm-pva]").show();
+		} else {
+			jQuery("div[id=section-fdm-pva]").hide();
+		}
+
+		calculFdm(machine);
+	}
+
 	//From G.Bussy
-	function calculFdm(){
+	function calculFdm(machine){
 		var finalValue = null;
 		var prix_abo = null;
 
@@ -13,6 +26,16 @@
 		var input_h = parseInt($('#fdm-heures').val()) || 0;
 		var input_p = parseInt($('#fdm-poids').val()) || 0;
 		var input_p_pva = parseInt($('#fdm-poids-pva').val()) || 0;
+
+		//Machine
+		var price_machine = 10;
+		var price_mat = 0.1;
+		var price_mat_pva = 0.2;
+		if(machine == "um3") {
+			price_machine = 15;
+		} else {
+			price_mat_pva = 0;
+		}
 
 		// Calcul du prix
 		if(input_h <= 1) {
@@ -23,12 +46,12 @@
 				if(a>30){
 					a = 30;
 				}
-				finalValue = finalValue + 10*(1/a);
+				finalValue = finalValue + price_machine*(1/a);
 			}
-			finalValue = finalValue + 10;
+			finalValue = finalValue + price_machine;
 		}
-		prix_abo = finalValue/2 + input_p*0.1 + input_p_pva*0.2;
-		finalValue = finalValue + input_p*0.1 + input_p_pva*0.2;
+		prix_abo = finalValue/2 + input_p*price_mat + input_p_pva*price_mat_pva;
+		finalValue = finalValue + input_p*price_mat + input_p_pva*price_mat_pva;
 
 		$('#fdm-price').val(priceFormat(finalValue));
 		$('#fdm-price-membre').val(priceFormat(prix_abo));
@@ -101,7 +124,7 @@
 	}
 
 	$(document).ready(function() {
-		calculFdm();
+		updateSectionFdm();
 		calculSla();
 		calculShs();
 		calculObj();
@@ -129,13 +152,13 @@
 
 		// Link to event (Fdm, Sla, Shs, Obj)
 		$('#fdm-heures').keyup(function(){
-			calculFdm();
+			updateSectionFdm();
 		});
 		$('#fdm-poids').keyup(function(){
-			calculFdm();
+			updateSectionFdm();
 		});
 		$('#fdm-poids-pva').keyup(function(){
-			calculFdm();
+			updateSectionFdm();
 		});
 		$('#sla-heures').keyup(function(){
 			calculSla();
@@ -154,6 +177,9 @@
 		});
 		$('#obj-poids-support').keyup(function(){
 			calculObj();
+		});
+		$('select.selectpicker').on('change', function(){
+			updateSectionFdm();
 		});
 
 	});
