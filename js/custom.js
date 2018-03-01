@@ -87,14 +87,30 @@
 
 	function calculShs(){
 		var finalValue = null;
+		var prix_abo = null;
 
 		// Récupération de la quantité de produit voulu
+		var input_h = parseInt($('#shs-heures').val()) || 0;
 		var input_p = parseInt($('#shs-poids').val()) || 0;
 
 		// Calcul du prix
-		finalValue = input_p*0.7;
+		if(input_h <= 1) {
+			finalValue = 15;
+		} else {
+			for(i=2;i<=input_h;i++){
+				a=i*0.7;
+				if(a>30){
+					a = 30;
+				}
+				finalValue = finalValue + 15*(1/a);
+			}
+			finalValue = finalValue + 15;
+		}
+		prix_abo = finalValue/2 + input_p*0.7;
+		finalValue = finalValue + input_p*0.7;
 
 		$('#shs-price').val(priceFormat(finalValue));
+		$('#shs-price-membre').val(priceFormat(prix_abo));
 	}
 
 	function calculObj(){
@@ -165,6 +181,9 @@
 		});
 		$('#sla-poids').keyup(function(){
 			calculSla();
+		});
+		$('#shs-heures').keyup(function(){
+			calculShs();
 		});
 		$('#shs-poids').keyup(function(){
 			calculShs();
