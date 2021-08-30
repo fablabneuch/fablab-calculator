@@ -59,11 +59,17 @@
 		material = input_p*price_pla + input_p_pva*price_pva;
 
 		prix_abo = finalValue/2 + material;
-		finalValue = finalValue + material;
+		finalprice = finalValue + material;
 
-		$('#fdm-price').val(ceilPriceToCHF(finalValue));
+		$('#fdm-price').val(ceilPriceToCHF(finalprice));
 		$('#fdm-price-material').val(ceilPriceToDCHT(material));
 		$('#fdm-price-membre').val(ceilPriceToCHF(prix_abo));
+
+		var finalprice_s5 = finalValue+(finalValue*0.25)+material;
+		var prix_abo_s5 = (finalValue+(finalValue*0.25))/2+material;
+		$('#fdm-S5-price').val(ceilPriceToCHF(finalprice_s5));
+		$('#fdm-S5-price-material').val(ceilPriceToDCHT(material));
+		$('#fdm-S5-price-membre').val(ceilPriceToCHF(prix_abo_s5));
 	}
 
 	function calculSla(){
