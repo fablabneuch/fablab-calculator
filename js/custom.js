@@ -9,7 +9,14 @@
 	}
 
 	function priceHoursPrinter(h, p_h, c_a, h_max) {
+		//var h : nombre d'heure
+		//var p_h : prix première heure
+		//var c_a : facteur dégressif
+		//var h_max : heure max facturée
 		//default values
+		if (p_h === undefined) {
+			p_h = 5;
+		}
 		if (c_a === undefined) {
 			c_a = 0.7;
 		}
@@ -40,15 +47,16 @@
 		var finalValue = null;
 		var prix_abo = null;
 		var material = null;
-
+		var price_pla = 0.2 //chf/g
+		var price_pva = 0.4 //chf/g
 		// Récupération de la quantité de produit voulu
 		var input_h = parseFloat($('#fdm-heures').val()) || 0;
 		var input_p = parseFloat($('#fdm-poids').val()) || 0;
 		var input_p_pva = parseFloat($('#fdm-poids-pva').val()) || 0;
 
-		finalValue = priceHoursPrinter(input_h, 10);
+		finalValue = priceHoursPrinter(input_h);
 
-		material = input_p*0.1 + input_p_pva*0.2;
+		material = input_p*price_pla + input_p_pva*price_pva;
 
 		prix_abo = finalValue/2 + material;
 		finalValue = finalValue + material;
